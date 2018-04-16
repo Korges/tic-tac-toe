@@ -6,30 +6,31 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
-<h1>Tic-Tac-Toe in JavaScript</h1>
-    <div class="content">
-            <table class="style">
-
-                <tr>
-                    <td class="square" id="0">X</td>
-                    <td class="square" id="1"></td>
-                    <td class="square" id="2"></td>
-                </tr>
-                <tr>
-                    <td class="square" id="3"></td>
-                    <td class="square" id="4">X</td>
-                    <td class="square" id="5"></td>
-                </tr>
-                <tr>
-                    <td class="square" id="6"></td>
-                    <td class="square" id="7"></td>
-                    <td class="square" id="8">X</td>
-                </tr>
-            </table>
-
+<header>
+    <h1>Tic-Tac-Toe in JavaScript</h1>
+</header>
+<div class="content">
+    <table class="table">
+        <tr>
+            <td class="square" id="0">X</td>
+            <td class="square" id="1"></td>
+            <td class="square" id="2"></td>
+        </tr>
+        <tr>
+            <td class="square" id="3"></td>
+            <td class="square" id="4">X</td>
+            <td class="square" id="5"></td>
+        </tr>
+        <tr>
+            <td class="square" id="6"></td>
+            <td class="square" id="7"></td>
+            <td class="square" id="8">X</td>
+        </tr>
+    </table>
+    <div>
+        <button class="button" onclick="startGame()">Play</button>
+        <script src="../js/board.js"></script>
     </div>
-    <button onclick="startGame()">Play</button>
-    <script src="../js/board.js"></script>
-
+</div>
 </body>
 </html>
