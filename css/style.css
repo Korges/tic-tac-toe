@@ -29,19 +29,20 @@ header h1 {
     background-color: deepskyblue;
 }
 .button {
+    margin: auto;
+    margin-top: 0px;
+}
+.inline-button {
     border-radius: 20px;
     font-family: cursive;
     font-style: italic;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    margin: auto;
-    margin-bottom: 0px;
     cursor: pointer;
     font-size: 30px;
 }
-.button:hover {
+.inline-button:hover {
     background-color: deeppink; /* Green */
     color: white;
 }
