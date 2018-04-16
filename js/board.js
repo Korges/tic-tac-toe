@@ -14,23 +14,20 @@ const winCells =  [
     [2, 4, 6]
 ];
 
-const cells = document.querySelectorAll("cells");
+const cells = document.querySelectorAll("square");
 
 startGame();
 
 function startGame(){
 
-    document.querySelector(".endgame").style.display = "none";
     origBoard = Array.from(Array(9).keys());
     for (let i = 0; i < cells.length; i++){
         cells[i].innerText = '';
-        cells[i].style.removeProperty('background-color');
         cells[i].addEventListener("click", turnClick);
     }
 }
 
 function turnClick(square){
-    console.log("example");
     turn(square.target.id, player);
 
 }
