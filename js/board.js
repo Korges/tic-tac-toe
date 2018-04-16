@@ -14,7 +14,7 @@ const winCells =  [
     [2, 4, 6]
 ];
 
-const cells = document.querySelectorAll("square");
+const cells = document.querySelectorAll(".square");
 
 startGame();
 
@@ -23,11 +23,12 @@ function startGame(){
     origBoard = Array.from(Array(9).keys());
     for (let i = 0; i < cells.length; i++){
         cells[i].innerText = '';
-        cells[i].addEventListener("click", turnClick);
+        cells[i].addEventListener("click", turnClick, false);
     }
 }
 
 function turnClick(square){
+
     turn(square.target.id, player);
 
 }
