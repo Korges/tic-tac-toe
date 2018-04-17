@@ -1,9 +1,5 @@
 let origBoard;
 let player = "O";
-// noinspection JSAnnotator
-var square = {
-    mark = ''
-}
 
 const winCells =  [
     [0, 1, 2],
@@ -29,22 +25,49 @@ function startGame() {
     }
 }
 
-function turnClick(square) {
-    console.log(square.innerText);
-    if (square.innerText !== 'O' && square.innerText !== 'X') {
+function turnClick(square){
 
-        if (player === 'O') {
-            player = 'X';
-        } else {
-            player = 'O';
-        }
+    let squareId = square.target.id;
+
+    if (document.getElementById(squareId).innerText === '') {
         turn(square.target.id, player);
+        switchTurn();
+    } else {
+        setMessage("Pick another square");
     }
+}
+
+function switchTurn(){
+
+    if (player === "X"){
+        player = "O";
+    } else {
+        player = "X";
+    }
+    setMessage("It's " + player + "'s turn");
+}
+
+function setMessage(msg){
+    document.getElementById("message").innerText = msg;
 }
 
 function turn(squareId, player) {
     origBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
+    let gameWon = checkWin(origBoard, player);
+    if (gameWon){
+        gameEnd();
+    }
+}
+
+function checkWin(board, player){
+
+    // let game = board.reduce((a, e, i) => (e === player)) ? a.concat(i) : a, [];
+
+}
+
+function gameEnd(){
+
 }
 
 
