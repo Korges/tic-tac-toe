@@ -31,30 +31,33 @@ function startGame(){
 
 function restartGame() {
     soundOnRestart();
-    isGameActive = true;
     startGame();
+    player = "O";
+    setMessage("It's " + player + "'s turn");
 }
 
 function turnClick(square) {
 
     let squareId = square.target.id;
 
-    if (document.getElementById(squareId).innerText === '' && isGameActive) {
+    if (document.getElementById(squareId).innerText === '') {
         turn(square.target.id, player);
         switchTurn();
     } else {
-        setMessage("Pick another square");
+        setMessage("Pick other square");
     }
 }
 
 function switchTurn() {
 
-    if (checkWin()) {
-        setMessage("Player " + player + " have won!");
-        performGameEnd();
-
+    if (checkWin()){
+        gameEnd();
     } else {
-        player = player === 'X' ? 'O' : 'X';
+        if (player === "X"){
+            player = "O";
+        } else {
+            player = "X";
+        }
         setMessage("It's " + player + "'s turn");
     }
 }
@@ -63,15 +66,36 @@ function setMessage(msg) {
     document.getElementById("message").innerText = msg;
 }
 
+function checkWin(){
+
+    let result = false;
+
+    for(let i = 0; i < winCells.length; i++){
+        if (checkRow(winCells[i])){
+            result = true;
+        }
+    }
+    return result;
 function turn(squareId, player) {
     origBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
 }
 
-function performGameEnd() {
-    isGameActive = false;
+function checkRow(row){
+
+    for (let j = 0; j < row.length; j++){
+        if (origBoard[row[j]] !== player){
+            return false;
+        }
+    }
+    return true;
 }
 
+function gameEnd(){
+    for (let i = 0; i < cells.length; i++){
+        document.getElementById(i).removeEventListener('click', turnClick, false);
+    }
+    setMessage("Player " + player + " won!");
 function createTable() {
     let mainTable = document.querySelector('.table');
     let tableRow;
