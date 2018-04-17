@@ -1,7 +1,8 @@
 let origBoard;
 let player = "O";
+const BOARDSIZE = 5;
 
-const winCells =  [
+const winCells = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -11,6 +12,8 @@ const winCells =  [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+createTable();
 
 const cells = document.querySelectorAll(".square");
 
@@ -68,6 +71,27 @@ function checkWin(board, player){
 
 function gameEnd(){
 
+}
+
+function createTable() {
+    let mainTable = document.querySelector('.table');
+    let tableRow;
+    for (let i=0; i<BOARDSIZE; i++) {
+        tableRow = document.createElement('tr');
+        fillRows(tableRow, i);
+        mainTable.appendChild(tableRow);
+    }
+}
+
+function fillRows(tableRow, rowNo) {
+    let tableCell;
+    for (let j=0; j<BOARDSIZE; j++) {
+        tableCell = document.createElement('td');
+        tableCell.classList.add('square');
+        tableCell.setAttribute('id', BOARDSIZE * rowNo + j);
+        console.log(tableCell);
+        tableRow.appendChild(tableCell);
+    }
 }
 
 
