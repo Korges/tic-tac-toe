@@ -41,7 +41,6 @@ header h1 {
     background-color: blueviolet;
 }
 button {
-
     margin-bottom: 100px;
 }
 .inline-button {
@@ -66,6 +65,9 @@ button {
     width: 160px;
     font-size: 100px;
     text-align: center;
+}
+.square:hover {
+    background-color: fuchsia;
 }
 table {
     border-spacing: 10px;

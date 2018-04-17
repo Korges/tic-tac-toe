@@ -16,7 +16,7 @@ const winCells =  [
 
 const cells = document.querySelectorAll(".square");
 
-// startGame();
+startGame();
 
 
 function startGame(){
@@ -27,10 +27,14 @@ function startGame(){
         cells[i].addEventListener("click", soundOnClick);
         cells[i].addEventListener("click", turnClick, false);
     }
-    soundOnRestart();
-    // let button = document.getElementsByClassName("inline-button");
-    // button.addEventListener("click", soundOnRestart);
 }
+
+function restartGame() {
+    soundOnRestart();
+    startGame();
+}
+
+
 
 function turnClick(square){
 
