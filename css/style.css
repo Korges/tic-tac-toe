@@ -24,7 +24,7 @@ header h1 {
     height: 80%;
     align-items: center;
 }
-.message {
+#message {
     font-style: italic;
     border-radius: 15px;
     font-size: 20px;
@@ -40,7 +40,7 @@ header h1 {
     border-radius: 10px;
     background-color: blueviolet;
 }
-.button {
+button {
 
     margin-bottom: 100px;
 }
