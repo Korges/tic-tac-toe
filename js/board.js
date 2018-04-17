@@ -1,10 +1,8 @@
-
 let origBoard;
 let player = "O";
-let gameTrue = true;
-
-
-const winCells =  [
+const BOARDSIZE = 3;
+let isGameActive = true;
+const winCells = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -15,16 +13,16 @@ const winCells =  [
     [2, 4, 6]
 ];
 
+createTable();
+
 const cells = document.querySelectorAll(".square");
 
 startGame();
 
-
-
 function startGame(){
 
     origBoard = Array.from(Array(9).keys());
-    for (let i = 0; i < cells.length; i++){
+    for (let i = 0; i < cells.length; i++) {
         cells[i].innerText = '';
         cells[i].addEventListener("click", soundOnClick);
         cells[i].addEventListener("click", turnClick, false);
@@ -38,9 +36,10 @@ function restartGame() {
     setMessage("It's " + player + "'s turn");
 }
 
-function turnClick(square){
+function turnClick(square) {
 
     let squareId = square.target.id;
+
     if (document.getElementById(squareId).innerText === '') {
         turn(square.target.id, player);
         switchTurn();
@@ -49,12 +48,7 @@ function turnClick(square){
     }
 }
 
-function turn(squareId, player){
-    origBoard[squareId] = player;
-    document.getElementById(squareId).innerText = player;
-}
-
-function switchTurn(){
+function switchTurn() {
 
     if (checkWin()){
         gameEnd();
@@ -82,6 +76,9 @@ function checkWin(){
         }
     }
     return result;
+function turn(squareId, player) {
+    origBoard[squareId] = player;
+    document.getElementById(squareId).innerText = player;
 }
 
 function checkRow(row){
@@ -99,6 +96,24 @@ function gameEnd(){
         document.getElementById(i).removeEventListener('click', turnClick, false);
     }
     setMessage("Player " + player + " won!");
+function createTable() {
+    let mainTable = document.querySelector('.table');
+    let tableRow;
+    for (let i=0; i<BOARDSIZE; i++) {
+        tableRow = document.createElement('tr');
+        fillRows(tableRow, i);
+        mainTable.appendChild(tableRow);
+    }
+}
+
+function fillRows(tableRow, rowNo) {
+    let tableCell;
+    for (let j=0; j<BOARDSIZE; j++) {
+        tableCell = document.createElement('td');
+        tableCell.classList.add('square');
+        tableCell.setAttribute('id', BOARDSIZE * rowNo + j);
+        tableRow.appendChild(tableCell);
+    }
 }
 
 function soundOnClick() {
@@ -111,4 +126,23 @@ function soundOnRestart() {
     let song = document.createElement('audio');
     song.setAttribute('src', '../other/restart.mp3');
     song.play();
+}
+
+function showHoveredMark() {
+    var pointedSquare;
+    pointedSquare = this;
+    if (pointedSquare.innerText === '') {
+        pointedSquare.style.color = 'grey';
+        pointedSquare.innerText = player;
+    }
+    console.log(pointedSquare.style);
+}
+
+function hideHoveredMark() {
+    var pointedSquare;
+    pointedSquare = this;
+    if (pointedSquare.style.color != 'black') {
+        pointedSquare.innerText = '';
+        pointedSquare.style.color = null;
+    }
 }
