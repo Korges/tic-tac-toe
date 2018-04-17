@@ -85,7 +85,7 @@ function checkMarks(row) {
 
 function checkMark(row, mark) {
     for (let i=0; i<row.length; i++) {
-        if (document.getElementById(row[i]).innerText !== mark) {
+        if (origBoard[row[i]] !== mark) {
             return false;
         }
     }
