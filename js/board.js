@@ -1,7 +1,9 @@
-
-var origBoard;
-const player = "O";
-const aiPlayer = "X";
+let origBoard;
+let player = "O";
+// noinspection JSAnnotator
+var square = {
+    mark = ''
+}
 
 const winCells =  [
     [0, 1, 2],
@@ -18,22 +20,29 @@ const cells = document.querySelectorAll(".square");
 
 startGame();
 
-function startGame(){
+function startGame() {
 
     origBoard = Array.from(Array(9).keys());
-    for (let i = 0; i < cells.length; i++){
+    for (let i = 0; i < cells.length; i++) {
         cells[i].innerText = '';
         cells[i].addEventListener("click", turnClick, false);
     }
 }
 
-function turnClick(square){
+function turnClick(square) {
+    console.log(square.innerText);
+    if (square.innerText !== 'O' && square.innerText !== 'X') {
 
-    turn(square.target.id, player);
-
+        if (player === 'O') {
+            player = 'X';
+        } else {
+            player = 'O';
+        }
+        turn(square.target.id, player);
+    }
 }
 
-function turn(squareId, player){
+function turn(squareId, player) {
     origBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
 }
