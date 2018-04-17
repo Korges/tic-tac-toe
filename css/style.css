@@ -1,3 +1,5 @@
+
+
 html, body {
     overflow: hidden;
     height: 100%;
@@ -60,15 +62,15 @@ button {
 .square {
 
     background-color: powderblue;
-    border-radius: 10px;
-    height: 160px;
-    width: 160px;
-    font-size: 100px;
+    border-radius: 8px;
+    height: 100px;
+    width: 100px;
+    font-size: 75px;
     text-align: center;
 }
-.square:hover {
-    background-color: fuchsia;
-}
+/*.square:hover {*/
+    /*background-color: fuchsia;*/
+/*}*/
 table {
-    border-spacing: 10px;
+    border-spacing: 7px;
 }
