@@ -1,3 +1,5 @@
+
+
 html, body {
     overflow: hidden;
     height: 100%;
@@ -70,6 +72,23 @@ button {
     background-color: deeppink; /* Green */
     color: white;
 }
+
+.square {
+
+    background-color: powderblue;
+    border-radius: 8px;
+    height: 100px;
+    width: 100px;
+    font-size: 75px;
+    text-align: center;
+}
+.square:hover {
+    background-color: fuchsia;
+}
+table {
+    border-spacing: 7px;
+}
+
 .footer {
     position: fixed;
     bottom: 0;
