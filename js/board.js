@@ -19,13 +19,11 @@ const cells = document.querySelectorAll(".square");
 
 startGame();
 
-function startGame() {
+function startGame(){
 
     origBoard = Array.from(Array(9).keys());
     for (let i = 0; i < cells.length; i++) {
         cells[i].innerText = '';
-        // cells[i].addEventListener('mouseover', showHoveredMark, false);
-        // cells[i].addEventListener('mouseleave', hideHoveredMark, false);
         cells[i].addEventListener("click", soundOnClick);
         cells[i].addEventListener("click", turnClick, false);
     }
@@ -68,28 +66,6 @@ function setMessage(msg) {
 function turn(squareId, player) {
     origBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
-}
-
-function checkWin() {
-    for (let i=0; i<winCells.length; i++) {
-        if(checkMarks(winCells[i])) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function checkMarks(row) {
-    return checkMark(row, "X") || checkMark(row, "O");
-}
-
-function checkMark(row, mark) {
-    for (let i=0; i<row.length; i++) {
-        if (origBoard[row[i]] !== mark) {
-            return false;
-        }
-    }
-    return true;
 }
 
 function performGameEnd() {
