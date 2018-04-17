@@ -40,9 +40,9 @@ function turnClick(square){
     }
 }
 
-function switchTurn(){
+function switchTurn() {
 
-    if (player === "X"){
+    if (player === "X") {
         player = "O";
     } else {
         player = "X";
@@ -50,7 +50,7 @@ function switchTurn(){
     setMessage("It's " + player + "'s turn");
 }
 
-function setMessage(msg){
+function setMessage(msg) {
     document.getElementById("message").innerText = msg;
 }
 
@@ -63,13 +63,13 @@ function turn(squareId, player) {
     }
 }
 
-function checkWin(board, player){
+function checkWin(board, player) {
 
     // let game = board.reduce((a, e, i) => (e === player)) ? a.concat(i) : a, [];
 
 }
 
-function gameEnd(){
+function gameEnd() {
 
 }
 
