@@ -34,7 +34,16 @@ function turnClick(square){
         turn(square.target.id, player);
         switchTurn();
     } else {
-        setMessage("Pick another square");
+        setMessage("Pick other square");
+    }
+}
+
+function turn(squareId, player){
+    origBoard[squareId] = player;
+    document.getElementById(squareId).innerText = player;
+    let gameWon = checkWin(origBoard, player);
+    if (gameWon){
+        gameEnd();
     }
 }
 
@@ -50,15 +59,6 @@ function switchTurn(){
 
 function setMessage(msg){
     document.getElementById("message").innerText = msg;
-}
-
-function turn(squareId, player){
-    origBoard[squareId] = player;
-    document.getElementById(squareId).innerText = player;
-    let gameWon = checkWin(origBoard, player);
-    if (gameWon){
-        gameEnd();
-    }
 }
 
 function checkWin(board, player){
