@@ -20,6 +20,7 @@ const cells = document.querySelectorAll(".square");
 startGame();
 
 
+
 function startGame(){
 
     origBoard = Array.from(Array(9).keys());
@@ -105,6 +106,7 @@ function soundOnClick() {
     song.setAttribute('src', '../other/click.mp3');
     song.play();
 }
+
 function soundOnRestart() {
     let song = document.createElement('audio');
     song.setAttribute('src', '../other/restart.mp3');

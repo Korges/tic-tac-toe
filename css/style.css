@@ -39,6 +39,19 @@ header h1 {
     margin-bottom: 20px;
     border-radius: 10px;
     background-color: blueviolet;
+    border-spacing: 10px;
+}
+.square {
+
+    background-color: powderblue;
+    border-radius: 10px;
+    height: 160px;
+    width: 160px;
+    font-size: 100px;
+    text-align: center;
+}
+.square:hover {
+    background-color: fuchsia;
 }
 button {
     margin-bottom: 100px;
@@ -57,18 +70,11 @@ button {
     background-color: deeppink; /* Green */
     color: white;
 }
-.square {
-
-    background-color: powderblue;
-    border-radius: 10px;
-    height: 160px;
-    width: 160px;
-    font-size: 100px;
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
     text-align: center;
-}
-.square:hover {
-    background-color: fuchsia;
-}
-table {
-    border-spacing: 10px;
 }
