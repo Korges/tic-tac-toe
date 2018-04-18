@@ -6,19 +6,25 @@ html, body {
     width: 100%;
     margin: 0;
     background-size: cover;
-    background-image: url("../other/416242.jpg");
+    background-image: url("../other/beach2.jpg");
     align-items: center;
 }
 header {
-    text-align: center;
-    font-style: oblique;
+    font-family: GTAfont, serif;
+
+    font-size: 30px;
     color: orange;
     background-color: black;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding-bottom: 10px;
+    /*display: flex;*/
+    text-align: center;
 }
 header h1 {
+
     margin: 0;
+
 }
 .content {
     display: flex;
@@ -27,64 +33,57 @@ header h1 {
     align-items: center;
 }
 #message {
+    font-family: MyFont, serif;
+    font-weight: 100;
     font-style: italic;
-    border-radius: 15px;
-    font-size: 20px;
-    padding: 5px 30px;
-    background-color: white;
-    margin: 2em 0 0 0;
+    font-size: 60px;
+    margin: 1em 0 0 0;
     text-align: center;
+
 }
+
 .table {
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    background-color: blueviolet;
+    background-color: black;
     border-spacing: 10px;
 }
 .square {
-
-    background-color: powderblue;
-    border-radius: 10px;
-    height: 160px;
-    width: 160px;
-    font-size: 100px;
-    text-align: center;
-}
-.square:hover {
-    background-color: fuchsia;
-}
-button {
-    margin-bottom: 100px;
-}
-.inline-button {
-    border-radius: 20px;
-    font-family: cursive;
-    font-style: italic;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 30px;
-}
-.inline-button:hover {
-    background-color: deeppink; /* Green */
-    color: white;
-}
-
-.square {
-
-    background-color: powderblue;
+    font-family: "DejaVu Sans", serif;
+    background-color: white;
     border-radius: 8px;
     height: 100px;
     width: 100px;
     font-size: 75px;
     text-align: center;
 }
+
 .square:hover {
-    background-color: fuchsia;
+    background-color: orange;
 }
+button {
+    margin-bottom: 100px;
+}
+.play-button {
+    border-radius: 20px;
+    font-family: GTAfont, serif;
+    padding: 15px 32px 25px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 40px;
+    color: orange;
+    background-color: black;
+    border-color: transparent;
+}
+.play-button:hover {
+    background-color: deeppink; /* Green */
+    color: white;
+}
+
+
 table {
     border-spacing: 7px;
 }
@@ -96,4 +95,15 @@ table {
     background-color: black;
     color: white;
     text-align: center;
+}
+
+/* --- CUSTOM FONTS --- */
+
+@font-face {
+    font-family: MyFont;
+    src: url("../other/AmaticSC-Bold.ttf"); /*URL to font*/
+}
+@font-face {
+    font-family: GTAfont;
+    src: url("../other/gta.ttf"); /*URL to font*/
 }
