@@ -1,7 +1,7 @@
 let origBoard;
 let player = "O";
 const BOARDSIZE = 3;
-let isGameActive = true;
+
 const winCells = [
     [0, 1, 2],
     [3, 4, 5],
@@ -66,16 +66,18 @@ function setMessage(msg) {
     document.getElementById("message").innerText = msg;
 }
 
-function checkWin(){
+function checkWin() {
 
     let result = false;
 
-    for(let i = 0; i < winCells.length; i++){
-        if (checkRow(winCells[i])){
+    for (let i = 0; i < winCells.length; i++) {
+        if (checkRow(winCells[i])) {
             result = true;
         }
     }
     return result;
+}
+
 function turn(squareId, player) {
     origBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
@@ -91,11 +93,15 @@ function checkRow(row){
     return true;
 }
 
-function gameEnd(){
-    for (let i = 0; i < cells.length; i++){
+function gameEnd() {
+
+    for (let i = 0; i < cells.length; i++) {
         document.getElementById(i).removeEventListener('click', turnClick, false);
+        document.getElementById(i).removeEventListener('click', soundOnClick, false);
     }
-    setMessage("Player " + player + " won!");
+    setMessage("Player " + player + " won!");``
+}
+
 function createTable() {
     let mainTable = document.querySelector('.table');
     let tableRow;
