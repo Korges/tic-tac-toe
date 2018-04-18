@@ -66,16 +66,17 @@ function setMessage(msg) {
     document.getElementById("message").innerText = msg;
 }
 
-function checkWin(){
+function checkWin() {
 
     let result = false;
 
-    for(let i = 0; i < winCells.length; i++){
-        if (checkRow(winCells[i])){
+    for (let i = 0; i < winCells.length; i++) {
+        if (checkRow(winCells[i])) {
             result = true;
         }
     }
     return result;
+}
 function turn(squareId, player) {
     origBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
@@ -91,11 +92,15 @@ function checkRow(row){
     return true;
 }
 
-function gameEnd(){
-    for (let i = 0; i < cells.length; i++){
+function gameEnd() {
+    for (let i = 0; i < cells.length; i++) {
         document.getElementById(i).removeEventListener('click', turnClick, false);
+        document.getElementById(i).removeEventListener('click', soundOnClick, false);
+
     }
     setMessage("Player " + player + " won!");
+}
+
 function createTable() {
     let mainTable = document.querySelector('.table');
     let tableRow;
@@ -117,9 +122,12 @@ function fillRows(tableRow, rowNo) {
 }
 
 function soundOnClick() {
-    let song = document.createElement('audio');
-    song.setAttribute('src', '../other/click.mp3');
-    song.play();
+
+        let song = document.createElement('audio');
+        song.setAttribute('src', '../other/click.mp3');
+        song.play();
+
+
 }
 
 function soundOnRestart() {

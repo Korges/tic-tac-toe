@@ -30,10 +30,11 @@ header h1 {
     font-style: italic;
     border-radius: 15px;
     font-size: 20px;
-    padding: 5px 30px;
+    padding: 10px 30px 8px;
     background-color: white;
     margin: 2em 0 0 0;
     text-align: center;
+    font-family: Sawasdee, serif;
 }
 .table {
     height: auto;
@@ -58,23 +59,24 @@ header h1 {
 button {
     margin-bottom: 100px;
 }
-.inline-button {
+.play-button {
     border-radius: 20px;
-    font-family: cursive;
-    font-style: italic;
+    font-family: Norasi, serif;
+    /*font-style: italic;*/
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
     font-size: 30px;
+    background-color: white;
 }
-.inline-button:hover {
+.play-button:hover {
     background-color: deeppink; /* Green */
     color: white;
 }
 
 .square {
-
+    font-family: "DejaVu Sans", serif;
     background-color: powderblue;
     border-radius: 8px;
     height: 100px;
