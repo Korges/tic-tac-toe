@@ -3,7 +3,7 @@ const BOARDSIZE = 3;
 let isGameActive = true;
 
 var board = {
-    cells,
+    cells: new Array(),
     BOARDSIZE: 3,
 };
 
@@ -28,10 +28,10 @@ board.cells = document.querySelectorAll(".square");
 
 startGame();
 
-function startGame(){
+function startGame() {
 
     origBoard = Array.from(Array(9).keys());
-    for (let i = 0; i < cells.length; i++) {
+    for (let i = 0; i < board.cells.length; i++) {
         board.cells[i].innerText = '';
         board.cells[i].addEventListener("click", soundOnClick);
         board.cells[i].addEventListener("click", turnClick, false);
@@ -42,7 +42,7 @@ function restartGame() {
     soundOnRestart();
     startGame();
     player.mark = "O";
-    setMessage("It's " + player + "'s turn");
+    setMessage("It's " + player.mark + "'s turn");
 }
 
 function turnClick(square) {
@@ -83,8 +83,9 @@ function checkWin() {
         if (checkRow(winCells[i])) {
             result = true;
         }
-        return result;
     }
+    return result;
+}
 
     function turn(squareId, mark) {
         origBoard[squareId] = player.mark;
@@ -94,7 +95,7 @@ function checkWin() {
     function checkRow(row) {
 
         for (let j = 0; j < row.length; j++) {
-            if (origBoard[row[j]] !== player) {
+            if (origBoard[row[j]] !== player.mark) {
                 return false;
             }
         }
@@ -102,7 +103,7 @@ function checkWin() {
     }
 
     function gameEnd() {
-        for (let i = 0; i < cells.length; i++) {
+        for (let i = 0; i < board.cells.length; i++) {
             document.getElementById(i).removeEventListener('click', turnClick, false);
         }
         setMessage("Player " + player.mark + " won!");
@@ -111,7 +112,7 @@ function checkWin() {
     function createTable() {
         let mainTable = document.querySelector('.table');
         let tableRow;
-        for (let i = 0; i < BOARDSIZE; i++) {
+        for (let i = 0; i < board.BOARDSIZE; i++) {
             tableRow = document.createElement('tr');
             fillRows(tableRow, i);
             mainTable.appendChild(tableRow);
@@ -120,7 +121,7 @@ function checkWin() {
 
     function fillRows(tableRow, rowNo) {
         let tableCell;
-        for (let j = 0; j < BOARDSIZE; j++) {
+        for (let j = 0; j < board.BOARDSIZE; j++) {
             tableCell = document.createElement('td');
             tableCell.classList.add('square');
             tableCell.setAttribute('id', BOARDSIZE * rowNo + j);
@@ -158,4 +159,3 @@ function checkWin() {
             pointedSquare.style.color = null;
         }
     }
-}
