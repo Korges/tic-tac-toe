@@ -1,7 +1,7 @@
 let origBoard;
 let player = "O";
 const BOARDSIZE = 3;
-let isGameActive = true;
+
 const winCells = [
     [0, 1, 2],
     [3, 4, 5],
@@ -15,7 +15,7 @@ const winCells = [
 backgroundSoundTheme();
 createTable();
 
-let cells = document.querySelectorAll(".square");
+const cells = document.querySelectorAll(".square");
 
 startGame();
 
@@ -94,13 +94,12 @@ function checkRow(row){
 }
 
 function gameEnd() {
+
     for (let i = 0; i < cells.length; i++) {
         document.getElementById(i).removeEventListener('click', turnClick, false);
         document.getElementById(i).removeEventListener('click', soundOnClick, false);
-
-
     }
-    setMessage("Player " + player + " won!");
+    setMessage("Player " + player + " won!");``
 }
 
 function createTable() {
