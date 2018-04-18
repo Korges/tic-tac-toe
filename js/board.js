@@ -12,10 +12,10 @@ const winCells = [
     [0, 4, 8],
     [2, 4, 6]
 ];
-
+backgroundSoundTheme();
 createTable();
 
-const cells = document.querySelectorAll(".square");
+let cells = document.querySelectorAll(".square");
 
 startGame();
 
@@ -30,6 +30,7 @@ function startGame(){
 }
 
 function restartGame() {
+
     soundOnRestart();
     startGame();
     player = "O";
@@ -97,6 +98,7 @@ function gameEnd() {
         document.getElementById(i).removeEventListener('click', turnClick, false);
         document.getElementById(i).removeEventListener('click', soundOnClick, false);
 
+
     }
     setMessage("Player " + player + " won!");
 }
@@ -119,6 +121,13 @@ function fillRows(tableRow, rowNo) {
         tableCell.setAttribute('id', BOARDSIZE * rowNo + j);
         tableRow.appendChild(tableCell);
     }
+}
+
+function backgroundSoundTheme() {
+    let song = document.createElement('audio');
+    song.setAttribute('src', '../other/gta-IV-theme.mp3');
+    song.loop = true;
+    song.play();
 }
 
 function soundOnClick() {
