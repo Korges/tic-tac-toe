@@ -1,7 +1,7 @@
 let origBoard;
 let player = "O";
 const BOARDSIZE = 3;
-let isGameActive = true;
+let backgroundMusic;
 const winCells = [
     [0, 1, 2],
     [3, 4, 5],
@@ -124,10 +124,29 @@ function fillRows(tableRow, rowNo) {
 }
 
 function backgroundSoundTheme() {
-    let song = document.createElement('audio');
-    song.setAttribute('src', '../other/gta-IV-theme.mp3');
-    song.loop = true;
-    song.play();
+    backgroundMusic = document.createElement('audio');
+
+
+    backgroundMusic.setAttribute('src', '../other/gta-IV-theme.mp3');
+    backgroundMusic.loop = true;
+    backgroundMusic.muted = false;
+    backgroundMusic.play();
+
+}
+
+function muteAudio() {
+
+    if(backgroundMusic.muted === false) {
+        backgroundMusic.muted = true;
+        let button = document.getElementsByClassName("sound-button-child");
+        console.log(button);
+        button.src='../other/Volume-ON.png';
+        console.log(button);
+    } else {
+        backgroundMusic.muted = false;
+        let button = document.getElementsByClassName("sound-button-child");
+        button.src='../other/Volume-OFF.png';
+    }
 }
 
 function soundOnClick() {
