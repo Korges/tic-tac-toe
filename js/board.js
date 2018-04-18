@@ -1,9 +1,5 @@
-let origBoard;
-const BOARDSIZE = 3;
-let isGameActive = true;
-
-var board = {
-    cells: new Array(),
+const board = {
+    cells: [],
     BOARDSIZE: 3,
 };
 
@@ -11,7 +7,7 @@ let player = {
     mark: "O"
 };
 
-const winCells = [
+const WINCELLS = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -30,7 +26,7 @@ startGame();
 
 function startGame() {
 
-    origBoard = Array.from(Array(9).keys());
+    board.origBoard = Array.from(Array(9).keys());
     for (let i = 0; i < board.cells.length; i++) {
         board.cells[i].innerText = '';
         board.cells[i].addEventListener("click", soundOnClick);
@@ -79,8 +75,8 @@ function checkWin() {
 
     let result = false;
 
-    for (let i = 0; i < winCells.length; i++) {
-        if (checkRow(winCells[i])) {
+    for (let i = 0; i < WINCELLS.length; i++) {
+        if (checkRow(WINCELLS[i])) {
             result = true;
         }
     }
@@ -88,14 +84,14 @@ function checkWin() {
 }
 
     function turn(squareId, mark) {
-        origBoard[squareId] = player.mark;
+        board.origBoard[squareId] = player.mark;
         document.getElementById(squareId).innerText = player.mark;
     }
 
     function checkRow(row) {
 
         for (let j = 0; j < row.length; j++) {
-            if (origBoard[row[j]] !== player.mark) {
+            if (board.origBoard[row[j]] !== player.mark) {
                 return false;
             }
         }
@@ -124,7 +120,7 @@ function checkWin() {
         for (let j = 0; j < board.BOARDSIZE; j++) {
             tableCell = document.createElement('td');
             tableCell.classList.add('square');
-            tableCell.setAttribute('id', BOARDSIZE * rowNo + j);
+            tableCell.setAttribute('id', board.BOARDSIZE * rowNo + j);
             tableRow.appendChild(tableCell);
         }
     }
