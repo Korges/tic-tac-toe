@@ -123,9 +123,8 @@ function fillRows(tableRow, rowNo) {
 }
 
 function backgroundSoundTheme() {
+
     backgroundMusic = document.createElement('audio');
-
-
     backgroundMusic.setAttribute('src', '../other/gta-IV-theme.mp3');
     backgroundMusic.loop = true;
     backgroundMusic.muted = false;
@@ -137,24 +136,22 @@ function muteAudio() {
 
     if(backgroundMusic.muted === false) {
         backgroundMusic.muted = true;
-        let button = document.getElementsByClassName("sound-button-child");
-        console.log(button);
-        button.src='../other/Volume-ON.png';
+        let button = document.getElementsByClassName("sound-button-child")[0];
+        button.src='../other/Volume-OFF.png';
         console.log(button);
     } else {
         backgroundMusic.muted = false;
-        let button = document.getElementsByClassName("sound-button-child");
-        button.src='../other/Volume-OFF.png';
+        let button = document.getElementsByClassName("sound-button-child")[0];
+        button.src='../other/Volume-ON.png';
+        console.log(button);
     }
 }
 
 function soundOnClick() {
 
-        let song = document.createElement('audio');
-        song.setAttribute('src', '../other/click.mp3');
-        song.play();
-
-
+    let song = document.createElement('audio');
+    song.setAttribute('src', '../other/click.mp3');
+    song.play();
 }
 
 function soundOnRestart() {
