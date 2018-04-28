@@ -38,7 +38,6 @@ header .sound-button {
 header .sound-button-child {
     width: 40px;
     height: 40px;
-    /*background-image: url("../other/beach2.jpg");*/
 }
 .content {
     display: flex;
